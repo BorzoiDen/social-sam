@@ -1,0 +1,7 @@
+.header{
+    grid-area: header;
+    background: #16708c;
+}
+.logo{
+    max-height: 100%;
+}

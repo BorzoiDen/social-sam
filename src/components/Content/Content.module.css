@@ -1,0 +1,25 @@
+.content{
+    grid-area: content;
+    background: #edeeef;
+}
+.cover{
+    min-width: 100%;
+    max-height: 312px;
+}
+.userAvatar{
+    font-size: 0;
+}
+.avatar{
+    max-width: 200px;
+}
+
+.userInfo{
+    display: flex;
+    column-gap: 15px;
+}
+
+.personalInfo{
+    display: flex;
+    min-width: 100%;
+    flex-direction: column;
+}
