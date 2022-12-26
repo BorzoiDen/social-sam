@@ -1,0 +1,7 @@
+.footer{
+    grid-area: footer;
+    background: #1a7a98;
+}
+.logo{
+    max-height: 100%;
+}

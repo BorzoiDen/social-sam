@@ -8,16 +8,13 @@
   padding: 0;
   border: 0;
 }
-
 a,
 a:visited {
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: none;
 }
-
 h1,
 h2,
 h3,
@@ -27,17 +24,14 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
-
 img {
   vertical-align: top;
 }
-
 body,
 html {
   height: 100%;
   line-height: 1;
 }
-
 ul li {
   list-style: none;
 }
@@ -48,9 +42,10 @@ ul li {
   min-height: 100%;
   display: grid;
   gap: 10px;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 60px 100% 70px;
   grid-template-columns: 2fr 10fr;
-  grid-template-areas: 'header header'
-                        'navbar content';
+  grid-template-areas:  'header header'
+                        'navbar content'
+                        'footer footer';
 }
 

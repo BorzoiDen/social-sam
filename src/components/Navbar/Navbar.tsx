@@ -1,18 +1,21 @@
 import React from 'react';
 import s from './Navbar.module.css';
 
-function Navbar() {
+const Navbar = () =>{
   return (
     <nav className={s.navbar}>
         <ul className={s.navbar_list}>
-            <li><a>Profile</a></li>
-            <li><a>Messages</a></li>
-            <li><a>Photos</a></li>
-            <li><a>Music</a></li>
-            <li><a>Games</a></li>
+            <li className={s.navbar_link}><a>Profile</a></li>
+            <li className={s.navbar_link}><a>Messages</a></li>
+            <li className={s.navbar_link}><a>Photos</a></li>
+            <li className={s.navbar_link}><a>Music</a></li>
+            <li className={s.navbar_link}><a>Games</a></li>
         </ul>
     </nav>
   );
 }
 
 export default Navbar;
+
+
+

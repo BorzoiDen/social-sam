@@ -1,13 +1,12 @@
 import React from 'react';
-import s from './Header.module.css';
+import s from './Footer.module.css';
 import logo from '../../img/13.png';
 
-const Header = () => {
+export default function Footer() {
     return (
-        <header className={s.header}>
+        <footer className={s.footer}>
             <a><img className={s.logo} src={logo} alt="logo"/></a>
-        </header>
+        </footer>
     );
 }
 
-export default Header;
