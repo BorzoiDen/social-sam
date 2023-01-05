@@ -1,8 +1,11 @@
 import React from 'react';
 import s from './Profile.module.css';
+import MyPosts from "./MyPosts/MyPosts";
+
 
 const Profile = () => {
   return (
+      <>
       <div className={s.profile}>
           <img className={s.cover} src={'https://images.template.net/' +
               'wp-content/uploads/2014/11/best-natural-cover-photo-of-forest.jpg'} alt={'cover'}/>
@@ -17,7 +20,9 @@ const Profile = () => {
                   </div>
               </div>
           </div>
+          <MyPosts />
       </div>
+      </>
   );
 }
 

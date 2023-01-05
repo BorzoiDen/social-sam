@@ -1,0 +1,20 @@
+.posts{
+    max-width: 200px;
+    margin: 15px 0px 0px 0px;
+    display: grid;
+    row-gap: 15px;
+}
+
+.posts__textarea{
+    display: inline-block;
+    border: 2px solid grey;
+}
+
+.posts__submitButton{
+    padding: 8px 10px;
+    background: green;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 10px;
+}

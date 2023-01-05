@@ -46,6 +46,5 @@ ul li {
   grid-template-columns: 2fr 10fr;
   grid-template-areas:  'header header'
                         'navbar content'
-                        'footer footer';
 }
 
