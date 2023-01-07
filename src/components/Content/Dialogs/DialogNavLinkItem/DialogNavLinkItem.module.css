@@ -1,0 +1,15 @@
+.names_item{
+    color: #1a7a98;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.names_item :not(:last-child){
+    margin: 0 0 15px 0;
+}
+
+.names_item.active{
+    font-style: italic;
+    text-decoration: underline;
+    color: blue;
+}
