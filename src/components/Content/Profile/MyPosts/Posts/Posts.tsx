@@ -1,14 +1,15 @@
 import React from 'react';
-import {Post, PostPropsType} from "./Post/Post";
+import {Post} from "./Post/Post";
+import {PostsDataType} from "../../../../../state";
 
 type PostsType = {
-    data: PostPropsType[]
+    postsState: PostsDataType[]
 }
 
-const Posts = ({data}: PostsType) => {
+const Posts = ({postsState}: PostsType) => {
     return (
         <>
-            {data.map((p) => <Post key={p.id} id={p.id} src={p.src} postText={p.postText} likesCount={p.likesCount}/>)}
+            {postsState.map((p) => <Post key={p.id} id={p.id} src={p.src} postText={p.postText} likesCount={p.likesCount}/>)}
         </>
     );
 }

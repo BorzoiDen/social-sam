@@ -1,9 +1,13 @@
 import React from 'react';
 import s from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
+import {ProfileDataType} from "../../../state";
 
+type ProfileType = {
+    profileState: ProfileDataType;
+}
 
-const Profile = () => {
+const Profile = ({profileState}:ProfileType) => {
   return (
       <>
       <div className={s.profile}>
@@ -20,7 +24,7 @@ const Profile = () => {
                   </div>
               </div>
           </div>
-          <MyPosts />
+          <MyPosts myPostsState={profileState}/>
       </div>
       </>
   );

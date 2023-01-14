@@ -4,15 +4,20 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Content from "./components/Content/Content";
 import {BrowserRouter} from "react-router-dom";
+import {StateType} from "./state";
 
 
-function App() {
+export type AppPropsType = {
+    state: StateType
+}
+
+const App = ({state} : AppPropsType) =>{
   return (
       <BrowserRouter>
           <div className={s.appWrapper}>
               <Header/>
               <Navbar/>
-              <Content/>
+              <Content contentState={state}/>
           </div>
       </BrowserRouter>
   );
