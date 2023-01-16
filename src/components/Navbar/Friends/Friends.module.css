@@ -1,0 +1,19 @@
+.friendList{
+    margin: 60px 0px 0px 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.friendList__title{
+    color: white;
+    font-size: 50px;
+}
+
+.friendList__items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 10px;
+}

@@ -7,7 +7,7 @@ import Photos from "./Photos/Photos";
 import Music from "./Music/Music";
 import Games from "./Games/Games";
 import Settings from "./Settings/Settings";
-import {DialogsDataType, ProfileDataType, StateType} from "../../state";
+import {StateType} from "../../state";
 
 export type ContentStateType = {
     contentState: StateType

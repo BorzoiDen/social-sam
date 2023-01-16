@@ -1,4 +1,10 @@
 import React from 'react';
+import {FriendType} from "./components/Navbar/Friends/Friend/Friend";
+import  ava1 from './img/781.jpg'
+import  ava2 from './img/769.jpg'
+import  ava3 from './img/785.jpg'
+import  ava4 from './img/13.png'
+
 
 export type PostsDataType = {
     id: number,
@@ -28,25 +34,48 @@ export type ProfileDataType = {
 }
 
 
+export type NavbarStateType = {
+    friendList: FriendType[]
+}
+
 
 export type StateType = {
+    navbarState: NavbarStateType,
     profileData: ProfileDataType,
     dialogsData: DialogsDataType
 }
 
-
 export let state: StateType = {
+    navbarState : {
+        friendList: [
+            {
+                id: 1,
+                src: ava1,
+                name: 'Julia'
+            },
+            {
+                id: 2,
+                src: ava2,
+                name: 'Sergio'
+            },
+            {
+                id: 3,
+                src: ava3,
+                name: 'Anna'
+            },
+        ]
+    },
     profileData: {
         postsData: [
             {
                 id: 1,
-                src: '#',
+                src: ava1,
                 postText: 'My first post!!!',
                 likesCount: 71
             },
             {
                 id: 2,
-                src: '#',
+                src: ava1,
                 postText: 'My second post!!!',
                 likesCount: 72
             }

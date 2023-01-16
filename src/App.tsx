@@ -11,13 +11,13 @@ export type AppPropsType = {
     state: StateType
 }
 
-const App = ({state} : AppPropsType) =>{
+const App = (props : AppPropsType) =>{
   return (
       <BrowserRouter>
           <div className={s.appWrapper}>
               <Header/>
-              <Navbar/>
-              <Content contentState={state}/>
+              <Navbar  navbarState={props.state.navbarState.friendList}/>
+              <Content contentState={props.state}/>
           </div>
       </BrowserRouter>
   );

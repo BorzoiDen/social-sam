@@ -1,0 +1,14 @@
+.friendItem{
+    display: flex;
+    flex-direction: column;
+}
+
+.friendAvatar{
+    max-width: 50px;
+    border-radius: 10px;
+}
+
+.friendAName{
+    font-weight: 900;
+    color : white;
+}

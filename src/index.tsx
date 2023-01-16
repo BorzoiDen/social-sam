@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {state, StateType} from './state';
+import {state} from './state';
 
 
 ReactDOM.render(

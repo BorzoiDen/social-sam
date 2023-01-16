@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "../../MyPosts.module.css";
+import s from "./Post.module.css";
 
 export type PostPropsType = {
     id: number,
