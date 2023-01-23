@@ -5,9 +5,11 @@ import {ProfileDataType} from "../../../state";
 
 type ProfileType = {
     profileState: ProfileDataType;
+    addPost: (postText: string) => void
 }
 
-const Profile = ({profileState}:ProfileType) => {
+const Profile = (props:ProfileType) => {
+
   return (
       <>
       <div className={s.profile}>
@@ -24,7 +26,7 @@ const Profile = ({profileState}:ProfileType) => {
                   </div>
               </div>
           </div>
-          <MyPosts myPostsState={profileState}/>
+          <MyPosts myPostsState={props.profileState} addPost={props.addPost}/>
       </div>
       </>
   );

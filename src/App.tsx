@@ -9,6 +9,7 @@ import {StateType} from "./state";
 
 export type AppPropsType = {
     state: StateType
+    addPost: (postText: string) => void
 }
 
 const App = (props : AppPropsType) =>{
@@ -17,7 +18,7 @@ const App = (props : AppPropsType) =>{
           <div className={s.appWrapper}>
               <Header/>
               <Navbar  navbarState={props.state.navbarState.friendList}/>
-              <Content contentState={props.state}/>
+              <Content contentState={props.state} addPost={props.addPost}/>
           </div>
       </BrowserRouter>
   );

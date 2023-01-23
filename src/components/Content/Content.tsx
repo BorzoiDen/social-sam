@@ -11,14 +11,14 @@ import {StateType} from "../../state";
 
 export type ContentStateType = {
     contentState: StateType
+    addPost: (postText: string) => void
 }
 
-const Content = ({contentState}: ContentStateType) => {
-    const {profileData: ProfileDataType, dialogsData: DialogsDataType} = contentState
+const Content = (props: ContentStateType) => {
     return (
         <>
-            <Route  path='/profile' render={() => <Profile profileState={contentState.profileData}/>}/>
-            <Route  path='/dialogs' render={() => <Dialogs dialogsState={contentState.dialogsData}/>}/>
+            <Route  path='/profile' render={() => <Profile profileState={props.contentState.profileData} addPost={props.addPost}/>}/>
+            <Route  path='/dialogs' render={() => <Dialogs dialogsState={props.contentState.dialogsData}/>}/>
             <Route  path='/photos' render={() => <Photos/>}/>
             <Route  path='/Music' render={() => <Music/>}/>
             <Route  path='/games' render={() => <Games/>}/>

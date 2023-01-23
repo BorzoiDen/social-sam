@@ -4,6 +4,7 @@ import  ava1 from './img/781.jpg'
 import  ava2 from './img/769.jpg'
 import  ava3 from './img/785.jpg'
 import  ava4 from './img/13.png'
+import {rerenderEntireTree} from "./render";
 
 
 export type PostsDataType = {
@@ -97,3 +98,16 @@ export let state: StateType = {
         ]
     }
 };
+
+
+export const addPost = (postText : string) => {
+    let newPost = {
+        id: state.profileData.postsData.length + 1,
+        src: ava4,
+        postText: postText,
+        likesCount: 0
+    }
+    state.profileData.postsData.push(newPost);
+    rerenderEntireTree(state);
+}
+

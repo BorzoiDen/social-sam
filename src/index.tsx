@@ -1,11 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import {state} from './state';
+import {rerenderEntireTree} from "./render";
+import {state} from "./state";
 
+rerenderEntireTree(state);
 
-ReactDOM.render(
-    <App state={state}/>,
-  document.getElementById('root')
-);

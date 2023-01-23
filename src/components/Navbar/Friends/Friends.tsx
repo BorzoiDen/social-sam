@@ -8,7 +8,7 @@ export type FriendsType = {
 
 const Friends = ({friendsProps}: FriendsType) => {
     return (
-        <div className={s.friendList}>
+        <div key={Number(new Date())} className={s.friendList}>
             <h3 className={s.friendList__title}>Friends</h3>
             <div className={s.friendList__items}>
                 {friendsProps.map((f)=> <Friend name={f.name} id={f.id} src={f.src}/>)}
