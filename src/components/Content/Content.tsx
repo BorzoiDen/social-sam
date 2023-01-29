@@ -7,18 +7,14 @@ import Photos from "./Photos/Photos";
 import Music from "./Music/Music";
 import Games from "./Games/Games";
 import Settings from "./Settings/Settings";
-import {StateType} from "../../state";
 
-export type ContentStateType = {
-    contentState: StateType
-    addPost: (postText: string) => void
-}
 
-const Content = (props: ContentStateType) => {
+const Content = (props: any) => {
     return (
         <>
-            <Route  path='/profile' render={() => <Profile profileState={props.contentState.profileData} addPost={props.addPost}/>}/>
-            <Route  path='/dialogs' render={() => <Dialogs dialogsState={props.contentState.dialogsData}/>}/>
+            <Route  path='/profile' render={() => <Profile state={props.state} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>}/>
+
+            <Route  path='/dialogs' render={() => <Dialogs dialogsState={props.state.dialogsData}/>}/>
             <Route  path='/photos' render={() => <Photos/>}/>
             <Route  path='/Music' render={() => <Music/>}/>
             <Route  path='/games' render={() => <Games/>}/>
