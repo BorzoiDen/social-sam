@@ -1,22 +1,35 @@
-import React from 'react';
-import css from './Dialogs.module.css';
+import React, {ChangeEvent} from 'react';
+import s from './Dialogs.module.css';
 import DialogItems from './DialogItems/DialogItems'
 import Messages from "./Messages/Messages";
-import {DialogsDataType} from "../../../state";
+import {DialogsDataType, sendMessageCreator, updateNewMessageTextCreator} from "../../../state";
 
 export type DialogsType = {
-    dialogsState: DialogsDataType
+    dialogsState: DialogsDataType,
+    dispatch: Function
 }
 
-const Dialogs = ({dialogsState}: DialogsType) => {
-    const {dialogsData, messagesData} = dialogsState
+const Dialogs = (props: DialogsType) => {
+
+    const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        let text = e.currentTarget.value;
+        props.dispatch(updateNewMessageTextCreator(text))
+    }
+    const onSendButtonClick = () => {
+        props.dispatch(sendMessageCreator())
+    }
+
   return (
-      <div className={css.dialogs}>
-          <div className={css.names}>
-              <DialogItems data={dialogsData} />
+      <div className={s.dialogs}>
+          <div className={s.names}>
+              <DialogItems data={props.dialogsState.dialogsData} />
           </div>
-          <div className={css.messages}>
-              <Messages data={messagesData} />
+          <div className={s.messages}>
+              <Messages data={props.dialogsState.messagesData} />
+              <div>
+                  <div><textarea value={props.dialogsState.newMessageText} placeholder={'Enter your message'} onChange={onChange}></textarea></div>
+                  <div><button onClick={onSendButtonClick}>Отправить</button></div>
+              </div>
           </div>
       </div>
   );

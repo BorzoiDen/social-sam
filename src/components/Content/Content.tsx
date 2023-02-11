@@ -12,9 +12,9 @@ import Settings from "./Settings/Settings";
 const Content = (props: any) => {
     return (
         <>
-            <Route  path='/profile' render={() => <Profile state={props.state} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>}/>
+            <Route  path='/profile' render={() => <Profile state={props.state.profileData} dispatch={props.dispatch}/>}/>
 
-            <Route  path='/dialogs' render={() => <Dialogs dialogsState={props.state.dialogsData}/>}/>
+            <Route  path='/dialogs' render={() => <Dialogs dialogsState={props.state.dialogsData} dispatch={props.dispatch}/>}/>
             <Route  path='/photos' render={() => <Photos/>}/>
             <Route  path='/Music' render={() => <Music/>}/>
             <Route  path='/games' render={() => <Games/>}/>

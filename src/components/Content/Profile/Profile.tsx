@@ -7,12 +7,13 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
 const Profile = (props: any) => {
-    console.log(props)
   return (
       <>
       <div className={s.profile}>
           <ProfileInfo/>
-          <MyPosts addPost={props.addPost} myPostsState={props.state.profileData} updateNewPostText={props.updateNewPostText}/>
+          <MyPosts state={props.state.postsData}
+                   newPostText={props.state.newPostText}
+                   dispatch={props.dispatch}/>
       </div>
       </>
   );

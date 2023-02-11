@@ -11,7 +11,7 @@ const Friends = ({friendsProps}: FriendsType) => {
         <div key={Number(new Date())} className={s.friendList}>
             <h3 className={s.friendList__title}>Friends</h3>
             <div className={s.friendList__items}>
-                {friendsProps.map((f)=> <Friend name={f.name} id={f.id} src={f.src}/>)}
+                {friendsProps.map((f, index)=> <Friend key={index} name={f.name} id={f.id} src={f.src}/>)}
             </div>
         </div>
     );
