@@ -1,13 +1,14 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from './MyPosts.module.css';
 import Posts from "./Posts/Posts";
-import {addPostActionCreator, ProfileDataType, updateNewPostTextActionCreator} from "../../../../state";
+import {ProfileDataType} from "../../../../redux/state";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/profileReducer";
 
 
 const MyPosts = (props: any) => {
 
     const addPost = () => {
-        props.dispatch(addPostActionCreator);
+        props.dispatch(addPostActionCreator());
     }
     const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let newText = e.currentTarget.value

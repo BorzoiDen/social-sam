@@ -1,14 +1,11 @@
 import React from 'react';
-import {FriendType} from "./components/Navbar/Friends/Friend/Friend";
-import  ava1 from './img/781.jpg'
-import  ava2 from './img/769.jpg'
-import  ava3 from './img/785.jpg'
-import  ava4 from './img/13.png'
-
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'NEW-MESSAGE-TEXT';
-const SEND_NEW_MESSAGE = 'SEND-NEW-MESSAGE';
+import {FriendType} from "../components/Navbar/Friends/Friend/Friend";
+import  ava1 from '../img/781.jpg'
+import  ava2 from '../img/769.jpg'
+import  ava3 from '../img/785.jpg'
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import navbarReducer from "./navbarReducer";
 
 let store = {
     _state: {
@@ -66,7 +63,7 @@ let store = {
         }
     },
     _callSubscriber (state: any){
-        console.log(state)
+        // console.log(state)
     },
     getState(){
         return this._state
@@ -76,41 +73,13 @@ let store = {
     },
 
     dispatch(action: any){
-        if(action.type === ADD_POST){
-            let newPost = {
-                id: this._state.profileData.postsData.length + 1,
-                src: ava4,
-                postText: this._state.profileData.newPostText,
-                likesCount: 0
-            }
-            if(this._state.profileData.newPostText.trim() !== ''){
-                this._state.profileData.postsData.push(newPost);
-            }
-            this._state.profileData.newPostText = ''
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT){
-            this._state.profileData.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
-            this._state.dialogsData.newMessageText = action.newText;
-            this._callSubscriber(this._state);
-        }  else if (action.type === SEND_NEW_MESSAGE){
-            let newMessage = this._state.dialogsData.newMessageText
-            this._state.dialogsData.newMessageText = ''
-            this._state.dialogsData.messagesData.push({id: 6, message: newMessage});
-            this._callSubscriber(this._state);
-        }
+        this._state.profileData = profileReducer(this._state.profileData, action)
+        this._state.dialogsData = dialogsReducer(this._state.dialogsData, action)
+        this._state.navbarState = navbarReducer(this._state.navbarState, action)
+
+        this._callSubscriber(this._state);
     }
 }
-
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (newText: string) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: newText})
-
-export const sendMessageCreator = () => ({type: SEND_NEW_MESSAGE})
-export const updateNewMessageTextCreator = (newText: string) =>
-    ({type: UPDATE_NEW_MESSAGE_TEXT, newText: newText})
-
 
 export type PostsDataType = {
     id: number,
