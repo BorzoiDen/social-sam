@@ -81,7 +81,7 @@ let store = {
     }
 }
 
-export type PostsDataType = {
+export type PostDataType = {
     id: number,
     src: string,
     postText: string,
@@ -103,8 +103,8 @@ export type DialogsDataType = {
     newMessageText: string
 
 }
-export type ProfileDataType = {
-    postsData: PostsDataType[],
+type ProfileDataType = {
+    postsData: PostDataType[],
     newPostText: string,
     addPost: ()=>void,
 }

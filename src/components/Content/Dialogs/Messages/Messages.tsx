@@ -3,13 +3,13 @@ import {Message, MessagePropsType} from "./Message/Message";
 import s from './messages.module.css'
 
 type MessagesDataType = {
-    data : MessagePropsType[]
+    messagesData : MessagePropsType[]
 }
 
-const  Messages = ({data}: MessagesDataType) => {
+const  Messages = ({messagesData}: MessagesDataType) => {
   return (
       <div className={s.messages}>
-          {data.map((m: MessagePropsType)=> <Message key={m.id} id={m.id} message={m.message}/>)}
+          {messagesData.map((m: MessagePropsType) => <Message key={m.id} id={m.id} message={m.message}/>)}
       </div>
   );
 }

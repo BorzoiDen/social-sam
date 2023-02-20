@@ -2,33 +2,34 @@ import React, {ChangeEvent} from 'react';
 import s from './Dialogs.module.css';
 import DialogItems from './DialogItems/DialogItems'
 import Messages from "./Messages/Messages";
-import {DialogsDataType} from "../../../redux/state";
-import {sendMessageCreator, updateNewMessageTextCreator} from "../../../redux/dialogsReducer";
+import {DialogsDataType} from "../../../redux/store";
+
 
 export type DialogsType = {
-    dialogsState: DialogsDataType,
-    dispatch: Function
+    dialogsData: DialogsDataType,
+    updateNewMessageText:(text: string) => void
+    onSendButtonClick: () => void
 }
 
 const Dialogs = (props: DialogsType) => {
 
     const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
-        props.dispatch(updateNewMessageTextCreator(text))
+        props.updateNewMessageText(text)
     }
     const onSendButtonClick = () => {
-        props.dispatch(sendMessageCreator())
+        props.onSendButtonClick()
     }
 
   return (
       <div className={s.dialogs}>
           <div className={s.names}>
-              <DialogItems data={props.dialogsState.dialogsData} />
+              <DialogItems dialogsData={props.dialogsData.dialogsData} />
           </div>
           <div className={s.messages}>
-              <Messages data={props.dialogsState.messagesData} />
+              <Messages messagesData={props.dialogsData.messagesData} />
               <div>
-                  <div><textarea value={props.dialogsState.newMessageText} placeholder={'Enter your message'} onChange={onChange}></textarea></div>
+                  <div><textarea value={props.dialogsData.newMessageText} placeholder={'Enter your message'} onChange={onChange}></textarea></div>
                   <div><button onClick={onSendButtonClick}>Отправить</button></div>
               </div>
           </div>

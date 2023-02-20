@@ -1,15 +1,15 @@
 import React from 'react';
 import {Post} from "./Post/Post";
-import {PostsDataType} from "../../../../../redux/state";
+import {PostDataType} from "../../../../../redux/store";
 
 type PostsType = {
-    postsState: PostsDataType[]
+    postsState: PostDataType[]
 }
 
-const Posts = ({postsState}: PostsType) => {
+const Posts = (props: PostsType) => {
     return (
         <>
-            {postsState.map((p) => <Post key={p.id} id={p.id} src={p.src} postText={p.postText} likesCount={p.likesCount}/>)}
+            {props.postsState.map((p) => <Post key={p.id} id={p.id} src={p.src} postText={p.postText} likesCount={p.likesCount}/>)}
         </>
     );
 }

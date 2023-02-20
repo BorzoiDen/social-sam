@@ -1,20 +1,25 @@
 import React from 'react';
 import {Route} from "react-router-dom";
-import s from './Content.module.css';
 import Profile from "./Profile/Profile";
 import Dialogs from "./Dialogs/Dialogs";
 import Photos from "./Photos/Photos";
 import Music from "./Music/Music";
 import Games from "./Games/Games";
 import Settings from "./Settings/Settings";
+import {AppDispatch, RootState} from "../../redux/redux-store";
+import {DialogsContainer} from "./Dialogs/DialogsContainer";
 
+type Props = {
+    state: RootState
+    dispatch: AppDispatch
+}
 
-const Content = (props: any) => {
+const Content = (props: Props) => {
     return (
         <>
-            <Route  path='/profile' render={() => <Profile state={props.state.profileData} dispatch={props.dispatch}/>}/>
+            <Route  path='/profile' render={() => <Profile profileData={props.state.profileData} dispatch={props.dispatch}/>}/>
 
-            <Route  path='/dialogs' render={() => <Dialogs dialogsState={props.state.dialogsData} dispatch={props.dispatch}/>}/>
+            <Route  path='/dialogs' render={() => <DialogsContainer dialogsData={props.state.dialogsData} dispatch={props.dispatch}/>}/>
             <Route  path='/photos' render={() => <Photos/>}/>
             <Route  path='/Music' render={() => <Music/>}/>
             <Route  path='/games' render={() => <Games/>}/>

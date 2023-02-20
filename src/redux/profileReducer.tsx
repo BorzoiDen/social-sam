@@ -1,12 +1,37 @@
 import ava4 from "../img/13.png";
+import ava1 from "../img/781.jpg";
+import ava2 from "../img/769.jpg";
+import ava3 from "../img/785.jpg";
+import {PostDataType} from "./store";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const profileReducer = (state: any, action: any) => {
+
+
+const initialState = {
+    postsData: [
+        {
+            id: 1,
+            src: ava1,
+            postText: 'My first post!!!',
+            likesCount: 71
+        },
+        {
+            id: 2,
+            src: ava1,
+            postText: 'My second post!!!',
+            likesCount: 72
+        }
+    ],
+    newPostText: '',
+}
+
+export type ProfileDataType = typeof initialState
+
+const profileReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case ADD_POST:
-            console.log('!!!!')
             let newPost = {
                 id: state.postsData.length + 1,
                 src: ava4,

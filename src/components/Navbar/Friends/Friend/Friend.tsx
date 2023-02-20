@@ -8,7 +8,6 @@ export type FriendType = {
 }
 
 const Friend = (props: FriendType) => {
-    // const {id, name, src} = props
     return (
         <a href={'#'} key={props.id} className={s.friendItem}>
             <img src={props.src} className={s.friendAvatar} alt={'friendAvatar'}/>

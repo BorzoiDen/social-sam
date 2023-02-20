@@ -7,14 +7,14 @@ export type DialogPropsType = {
 }
 
 export type DialogItemsType = {
-    data: DialogPropsType[]
+    dialogsData: DialogPropsType[]
 }
 
-const DialogItems = ({data}: DialogItemsType) => {
+const DialogItems = (props: DialogItemsType) => {
 
   return (
       <>
-        {data.map(({id,name}: DialogPropsType)=> <DialogNavLinkItem key={id} id={id} name={name}/>)}
+        {props.dialogsData.map(({id,name}: DialogPropsType)=> <DialogNavLinkItem key={id} id={id} name={name}/>)}
       </>
   );
 }

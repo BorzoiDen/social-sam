@@ -1,11 +1,11 @@
 import * as React from 'react';
 import css from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
-import Friends from "./Friends/Friends";
+import {Friends} from "./Friends/Friends";
 import {FriendType} from "./Friends/Friend/Friend";
 
 export type NavbarType = {
-    navbarState : FriendType[]
+    friends : FriendType[]
 }
 
 const Navbar = (props: NavbarType) =>{
@@ -18,10 +18,9 @@ const Navbar = (props: NavbarType) =>{
               <NavLink to={'/music'} className={css.navbar_item} activeClassName={css.active}>Music</NavLink>
               <NavLink to={'/games'} className={css.navbar_item} activeClassName={css.active}>Games</NavLink>
               <NavLink to={'/settings'} className={css.navbar_item} activeClassName={css.active}>Settings</NavLink>
-              <Friends friendsProps={props.navbarState}/>
+              <Friends friends={props.friends}/>
           </nav>
       </>
-
   );
 }
 export default Navbar;
