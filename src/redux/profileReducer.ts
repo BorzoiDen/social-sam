@@ -1,13 +1,8 @@
 import ava4 from "../img/13.png";
 import ava1 from "../img/781.jpg";
-import ava2 from "../img/769.jpg";
-import ava3 from "../img/785.jpg";
-import {PostDataType} from "./store";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-
-
 
 const initialState = {
     postsData: [
@@ -27,32 +22,35 @@ const initialState = {
     newPostText: '',
 }
 
-export type ProfileDataType = typeof initialState
-
-const profileReducer = (state = initialState, action: any) => {
+const profileReducer = (state = initialState, action: AddPostAT | UpdatePostAT) => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
                 id: state.postsData.length + 1,
                 src: ava4,
                 postText: state.newPostText,
                 likesCount: 0
             }
-            if(state.newPostText.trim() !== ''){
-                state.postsData.push(newPost);
-            }
-            state.newPostText = ''
-            return state;
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText
-            return state;
+            return {
+                ...state,
+                postsData: [...state.postsData, newPost],
+                newPostText: ''
+            };
+        }
+        case UPDATE_NEW_POST_TEXT: {
+            return {...state, newPostText: action.newText}
+         }
         default:
             return state;
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostActionCreator = () => ({type: ADD_POST} as const);
 export const updateNewPostTextActionCreator = (newText: string) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: newText})
-
+    ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
+export type AddPostAT = ReturnType <typeof addPostActionCreator>
+export type UpdatePostAT = ReturnType <typeof updateNewPostTextActionCreator>
 export default  profileReducer;
+
+export class ProfileDataType {
+}

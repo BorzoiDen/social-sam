@@ -29,7 +29,7 @@ const initialState = {
 
 
 
-const navbarReducer = (state = initialState, action: any) => {
+const navbarReducer = (state = initialState, action: {type: string}) => {
     return state
 }
 

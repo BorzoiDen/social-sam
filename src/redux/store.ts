@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {FriendType} from "../components/Navbar/Friends/Friend/Friend";
 import  ava1 from '../img/781.jpg'
 import  ava2 from '../img/769.jpg'
@@ -63,7 +63,6 @@ let store = {
         }
     },
     _callSubscriber (state: any){
-        // console.log(state)
     },
     getState(){
         return this._state

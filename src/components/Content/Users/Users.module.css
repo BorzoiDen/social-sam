@@ -1,0 +1,57 @@
+.userBlock{
+    display: flex;
+    gap: 10px;
+    margin: 0px 0px 30px 0px;
+}
+.userImg{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.avatar{
+    border-radius: 10px;
+    max-width: 100px;
+}
+.buttonFollow{
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    max-width: 100%;
+    background-color: #16708c;
+    font-weight: 900;
+}
+.buttonFollow:hover{
+    background-color: #1a7a98;
+}
+.userInfo{
+    min-width: 600px;
+    border: #16708c 5px solid;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: inset  5px 5px 15px 1px black;
+    display: grid;
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+    grid-template-areas: 'name country'
+                          'status city';
+    column-gap: 50px;
+}
+.userName{
+    grid-area: name;
+}
+.userStatus{
+    grid-area: status;
+    align-self: end;
+    font-weight: 400;
+}
+
+.userCountry{
+    grid-area: country;
+}
+.userCity{
+    grid-area: city;
+    align-self: end;
+}

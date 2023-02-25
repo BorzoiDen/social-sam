@@ -1,17 +1,19 @@
-import {combineReducers, legacy_createStore as createStore} from "redux";
+import {combineReducers, createStore} from "redux";
 import profileReducer from "./profileReducer";
 import dialogsReducer from "./dialogsReducer";
 import navbarReducer from "./navbarReducer";
+import usersReducer from "./usersReducer";
 
 const reducers = combineReducers({
     profileData: profileReducer,
     dialogsData: dialogsReducer,
-    navbarState: navbarReducer
+    navbarState: navbarReducer,
+    usersState: usersReducer
 })
 
 export const store = createStore(reducers);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof reducers>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
