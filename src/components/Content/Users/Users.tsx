@@ -1,55 +1,70 @@
 import React from 'react';
-import {UserType} from "../../../redux/usersReducer";
 import s from './Users.module.css'
+import axios from "axios";
+import userPhoto from "../../../img/user.jpg"
+import {CommonPropsType} from "./UsersContainer";
 
 type UsersPropsType = {
-    users: UserType[],
+    users: any[],
     followUSR: (userID: string) => void,
     unfollowUSR: (userID: string) => void,
-    setUsers: (users: UserType[]) => void
+    setUsers: (users: any[]) => void
+}
+
+
+export type UserType = {
+    name: string
+    id: number
+    photos: {
+        small: string
+        large: string
+    }
+    status: string
+    followed: boolean
 
 }
 
-export const Users = (props: UsersPropsType) => {
-    // if(props.users.length === 0){
-    //     props.setUsers([{
-    //             id: '1',
-    //             name: 'Denis',
-    //             status: 'my status 1',
-    //             isFriend: true,
-    //             ava: 'https://bipbap.ru/wp-content/uploads/2021/07/modnye-avatarki-dlya-vk_0.jpg',
-    //             location: {
-    //                 country: "Russia",
-    //                 city: 'Novosibirsk'
-    //             }
-    //         },
-    //         {id: '2', name: 'Svelana', status: 'my status 2', isFriend: false, ava: 'https://bipbap.ru/wp-content/uploads/2021/07/modnye-avatarki-dlya-vk_0.jpg', location: {country: "Italy", city: 'Rome'}},
-    //         {id: '3', name: 'Nikolay', status: 'my status 3', isFriend: true, ava: 'https://bipbap.ru/wp-content/uploads/2021/07/modnye-avatarki-dlya-vk_0.jpg', location: {country: "Belarus", city: 'Minsk'}}])
-    // }
+
+export type UsersResponseType = {
+    items: UserType[]
+    totalCount: number
+    error: string | null
+}
 
 
-    return (
-        <div>
+export class Users extends React.Component<CommonPropsType> {
+
+
+    componentDidMount() {
+        axios.get<UsersResponseType>('https://social-network.samuraijs.com/api/1.0/users')
+            .then((response) => this.props.setUsers(response.data.items))
+    }
+
+    render() {
+        return <div>
             {
-                props.users.map(u => <div key={u.id}>
+                this.props.users.map((u: any) => <div key={u.id}>
                     <div className={s.userBlock}>
                         <div className={s.userImg}>
-                            <img className={s.avatar} src={u.ava} alt={s.avatar}/>
+                            <img className={s.avatar} src={userPhoto} alt={'avatar'}/>
                             {u.isFriend
-                                ?<button className={s.buttonFollow} onClick={()=>{props.unfollowUSR(u.id)}}>UNFOLLOW</button>
-                                :<button className={s.buttonFollow} onClick={()=>{props.followUSR(u.id)}}>FOLLOW</button>
+                                ? <button className={s.buttonFollow} onClick={() => {
+                                    this.props.unfollowUSR(u.id)
+                                }}>UNFOLLOW</button>
+                                : <button className={s.buttonFollow} onClick={() => {
+                                    this.props.followUSR(u.id)
+                                }}>FOLLOW</button>
                             }
                         </div>
                         <div className={s.userInfo}>
                             <span className={s.userName}>{u.name}</span>
                             <span className={s.userStatus}>{u.status}</span>
-                            <span className={s.userCountry}>{u.location.country}</span>
-                            <span className={s.userCity}>{u.location.city}</span>
+                            <span className={s.userCountry}>{"u.location.country"}</span>
+                            <span className={s.userCity}>{'u.location.city'}</span>
                         </div>
                     </div>
-                </div> )
+                </div>)
             }
         </div>
-    );
-};
-
+    }
+}
