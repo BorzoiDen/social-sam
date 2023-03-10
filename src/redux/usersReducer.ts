@@ -1,5 +1,4 @@
-import {UserType} from "../components/Content/Users/Users";
-
+import {UserType} from "../components/Content/Users/UsersContainer";
 
 type InitStateType = {
     users: UserType[],
@@ -7,7 +6,6 @@ type InitStateType = {
     totalUsersCount: number,
     currentPage: number
 }
-
 
 const initialState:InitStateType = {
     users: [],
@@ -25,14 +23,15 @@ const SET_USERS_COUNT = 'SET-USERS-COUNT'
 
 const usersReducer = (state = initialState , action: any):typeof initialState => {
     switch (action.type){
-        case FOLLOW_USER:
-            return {...state,
-                users: state.users.map(u => u.id === action.userID?{...u, isFriend: true}:u)
-            }
+        case FOLLOW_USER: {
+            return  {...state, users: state.users.map(u => u.id === action.userID?{...u, followed: true}:u )}
+
+        }
+
         case UNFOLLOW_USER:
-            return {...state,
-                users: state.users.map(u => u.id === action.userID?{...u, isFriend: false}:u)
-            }
+            return {...state, users: state.users.map(u => u.id === action.userID?{...u, followed: false}:u )}
+
+
         case SET_USERS:
             return {...state, users: action.users}
 
