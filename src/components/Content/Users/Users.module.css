@@ -1,3 +1,7 @@
+.usersLoader{
+    width: 50px;
+}
+
 .userBlock{
     display: flex;
     gap: 10px;

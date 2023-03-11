@@ -12,6 +12,7 @@ export type UsersPropsType = {
     users: any[]
     unfollowUSR: (id: string) => void
     followUSR: (id: string) => void
+    isFetching: boolean
 }
 
 
