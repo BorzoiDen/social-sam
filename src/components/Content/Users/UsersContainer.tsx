@@ -1,19 +1,17 @@
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {RootState} from "../../../redux/redux-store";
-import s from "./Users.module.css";
 import {
-    followAC,
-    setCurrentPageAC,
-    setIsFetchingAC,
-    setUsersAC,
-    setUsersCountAC,
-    unfollowAC
+    follow,
+    setCurrentPage,
+    setIsFetching,
+    setUsers,
+    setUsersCount,
+    unfollow
 } from "../../../redux/usersReducer";
 import React from 'react';
 import axios from "axios";
 import {Users} from "./Users";
-import preloader from '../../../img/loader.gif'
 import {Preloader} from "../Preloader/Preloader";
 
 export type UserType = {
@@ -83,16 +81,17 @@ let mapStateToProps = (state: RootState) => {
     }
 }
 
-let mapDispatchToProps = (dispatch: Dispatch) =>{
-    return {
-        followUSR: (userID: string) => dispatch(followAC(userID)),
-        unfollowUSR: (userID: string) => dispatch(unfollowAC(userID)),
-        setUsers: (users: any) => dispatch(setUsersAC(users)),
-        setUsersCount: (count: number) => dispatch(setUsersCountAC(count)),
-        setCurrentPage: (currentPage: number) => dispatch(setCurrentPageAC(currentPage)),
-        setIsFetching: (fetching: boolean) => dispatch(setIsFetchingAC(fetching))
-    }
-}
+// let mapDispatchToProps = (dispatch: Dispatch) =>{
+//     return {
+//         followUSR: (userID: string) => dispatch(followAC(userID)),
+//         unfollowUSR: (userID: string) => dispatch(unfollowAC(userID)),
+//         setUsers: (users: any) => dispatch(setUsersAC(users)),
+//         setUsersCount: (count: number) => dispatch(setUsersCountAC(count)),
+//         setCurrentPage: (currentPage: number) => dispatch(setCurrentPageAC(currentPage)),
+//         setIsFetching: (fetching: boolean) => dispatch(setIsFetchingAC(fetching))
+//     }
+// }
+
 
 type MSTP = {
     users: UserType[],
@@ -113,4 +112,9 @@ type MDTP = {
 
 export type CommonPropsType = MSTP & MDTP
 
-export let UsersContainer =  connect(mapStateToProps, mapDispatchToProps)(UsersContain)
+export let UsersContainer =  connect(mapStateToProps, { follow,
+                                                                        unfollow,
+                                                                        setUsers,
+                                                                        setUsersCount,
+                                                                        setCurrentPage,
+                                                                        setIsFetching })(UsersContain)

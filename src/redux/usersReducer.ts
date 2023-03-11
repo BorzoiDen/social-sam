@@ -53,22 +53,22 @@ const usersReducer = (state = initialState , action: ActionType):typeof initialS
     }
 }
 
-export const followAC = (userID: string | number ) => ({userID, type: FOLLOW_USER} as const)
-export type  followAT = ReturnType <typeof followAC>
+export const follow = (userID: string | number ) => ({userID, type: FOLLOW_USER} as const)
+export type  followAT = ReturnType <typeof follow>
 
-export const unfollowAC = (userID: string | number) =>({userID, type: UNFOLLOW_USER} as const)
-export type  unfollowAT = ReturnType <typeof unfollowAC>
+export const unfollow = (userID: string | number) =>({userID, type: UNFOLLOW_USER} as const)
+export type  unfollowAT = ReturnType <typeof unfollow>
 
-export const setUsersAC = (users: any[]) =>({type: SET_USERS, users} as const)
-export type  setUsersAT = ReturnType <typeof setUsersAC>
+export const setUsers = (users: any[]) =>({type: SET_USERS, users} as const)
+export type  setUsersAT = ReturnType <typeof setUsers>
 
-export const setUsersCountAC = (count: number) =>({type: SET_USERS_COUNT, count} as const)
-export type  setUsersCountAT = ReturnType <typeof setUsersCountAC>
+export const setUsersCount = (count: number) =>({type: SET_USERS_COUNT, count} as const)
+export type  setUsersCountAT = ReturnType <typeof setUsersCount>
 
-export const setCurrentPageAC = (currentPage: number) =>({type: SET_CURRENT_PAGE, currentPage} as const)
-export type  setCurrentPageAT = ReturnType <typeof setCurrentPageAC>
+export const setCurrentPage = (currentPage: number) =>({type: SET_CURRENT_PAGE, currentPage} as const)
+export type  setCurrentPageAT = ReturnType <typeof setCurrentPage>
 
-export const setIsFetchingAC = (fetching: boolean) =>({type: TOGGLE_FETCHING, fetching} as const)
-export type  setIsFetchingAT = ReturnType <typeof setIsFetchingAC>
+export const setIsFetching = (fetching: boolean) =>({type: TOGGLE_FETCHING, fetching} as const)
+export type  setIsFetchingAT = ReturnType <typeof setIsFetching>
 
 export default usersReducer;
