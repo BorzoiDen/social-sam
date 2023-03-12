@@ -1,6 +1,7 @@
 import React from 'react';
 import s from "./Users.module.css";
 import userPhoto from "../../../img/user.jpg";
+import {NavLink} from "react-router-dom";
 
 
 
@@ -10,8 +11,8 @@ export type UsersPropsType = {
     currentPage: number
     onPageChanged: (p: number) => void
     users: any[]
-    unfollowUSR: (id: string) => void
-    followUSR: (id: string) => void
+    unfollow: (id: string) => void
+    follow: (id: string) => void
     isFetching: boolean
 }
 
@@ -36,13 +37,15 @@ export const Users = (props: UsersPropsType) => {
                 props.users.map((u: any) => <div key={u.id}>
                     <div className={s.userBlock}>
                         <div className={s.userImg}>
-                            <img className={s.avatar} src={u.photos.small?u.photos.small:userPhoto} alt={'avatar'}/>
+                            <NavLink to={'/profile/' + 2}>
+                                <img className={s.avatar} src={u.photos.small?u.photos.small:userPhoto} alt={'avatar'}/>
+                            </NavLink>
                             {u.followed
                                 ? <button className={s.buttonFollow} onClick={() => {
-                                    props.unfollowUSR(u.id)
+                                    props.unfollow(u.id)
                                 }}>UNFOLLOW</button>
                                 : <button className={s.buttonFollow} onClick={() => {
-                                    props.followUSR(u.id)
+                                    props.follow(u.id)
                                 }}>FOLLOW</button>
                             }
                         </div>

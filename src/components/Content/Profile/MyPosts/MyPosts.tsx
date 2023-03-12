@@ -2,13 +2,14 @@ import React, {ChangeEvent} from 'react';
 import s from './MyPosts.module.css';
 import Posts from "./Posts/Posts";
 import {PostDataType} from "../../../../redux/store";
+import {ProfileResponseType} from "../ProfileContainer";
 
 
 type Props = {
     addPost: () => void
     onPostChange: (text: string) => void
     posts: PostDataType[]
-    newPostText: string
+    newPostText: string,
 }
 
 const MyPosts = (props: Props) => {

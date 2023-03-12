@@ -5,10 +5,10 @@ import {connect} from "react-redux";
 import {Dispatch} from "redux";
 
 let mapStateToProps = (state: RootState) => {
-    const {profileData} = state
+
     return {
-        posts: profileData.postsData,
-        newPostText: profileData.newPostText
+        posts: state.profileData.postsData,
+        newPostText: state.profileData.newPostText
     }
 }
 

@@ -1,5 +1,4 @@
 import {connect} from "react-redux";
-import {Dispatch} from "redux";
 import {RootState} from "../../../redux/redux-store";
 import {
     follow,
@@ -62,8 +61,8 @@ export class UsersContain extends React.Component<CommonPropsType> {
                    currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}
                    users={this.props.users}
-                   unfollowUSR={this.props.unfollowUSR}
-                   followUSR={this.props.followUSR}
+                   unfollow={this.props.unfollow}
+                   follow={this.props.follow}
                    isFetching={this.props.isFetching}
             />
         </>
@@ -81,18 +80,6 @@ let mapStateToProps = (state: RootState) => {
     }
 }
 
-// let mapDispatchToProps = (dispatch: Dispatch) =>{
-//     return {
-//         followUSR: (userID: string) => dispatch(followAC(userID)),
-//         unfollowUSR: (userID: string) => dispatch(unfollowAC(userID)),
-//         setUsers: (users: any) => dispatch(setUsersAC(users)),
-//         setUsersCount: (count: number) => dispatch(setUsersCountAC(count)),
-//         setCurrentPage: (currentPage: number) => dispatch(setCurrentPageAC(currentPage)),
-//         setIsFetching: (fetching: boolean) => dispatch(setIsFetchingAC(fetching))
-//     }
-// }
-
-
 type MSTP = {
     users: UserType[],
     pageSize: number,
@@ -102,8 +89,8 @@ type MSTP = {
 }
 
 type MDTP = {
-    followUSR: (userID: string) => void
-    unfollowUSR: (userID: string) => void
+    follow: (userID: string) => void
+    unfollow: (userID: string) => void
     setUsers: (users: any) => void
     setCurrentPage: (currentPage: number) => void
     setUsersCount: (count: number) => void

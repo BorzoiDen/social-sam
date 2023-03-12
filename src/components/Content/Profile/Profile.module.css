@@ -13,6 +13,10 @@
     max-width: 200px;
 }
 
+.avatar img{
+    max-width: 200px;
+}
+
 .userInfo{
     display: flex;
     column-gap: 15px;

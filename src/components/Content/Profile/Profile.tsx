@@ -2,18 +2,18 @@ import React from 'react';
 import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
-import {AppDispatch} from "../../../redux/redux-store";
-import {ProfileDataType} from "../../../redux/profileReducer";
+import {ProfileResponseType} from "./ProfileContainer";
 
-type Props = {
-    dispatch: AppDispatch
-    profileData: ProfileDataType
+type ProfilePropsType = {
+    profile: ProfileResponseType,
+    setUserProfile: (profile: ProfileResponseType) => void
 }
 
-const Profile = (props: Props) => {
+const Profile = (props: ProfilePropsType) => {
+    const {profile, setUserProfile} = props
     return (
         <div className={s.profile}>
-            <ProfileInfo/>
+            <ProfileInfo profile={profile} setUserProfile={setUserProfile}/>
             <MyPostsContainer/>
         </div>
     );

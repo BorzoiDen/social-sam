@@ -11,9 +11,12 @@ const reducers = combineReducers({
     usersState: usersReducer
 })
 
-export const store = createStore(reducers);
+export let store = createStore(reducers);
+
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof reducers>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
+
+
