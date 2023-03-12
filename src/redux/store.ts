@@ -44,6 +44,7 @@ let store = {
                 }
             ],
             newPostText: '',
+            profile: null
         },
         dialogsData: {
             dialogsData: [
@@ -106,6 +107,7 @@ type ProfileDataType = {
     postsData: PostDataType[],
     newPostText: string,
     addPost: ()=>void,
+    profile: any
 }
 
 export type NavbarStateType = {

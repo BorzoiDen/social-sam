@@ -8,6 +8,7 @@ import Settings from "./Settings/Settings";
 import {AppDispatch, RootState} from "../../redux/redux-store";
 import {DialogsContainer} from "./Dialogs/DialogsContainer";
 import {UsersContain, UsersContainer} from "./Users/UsersContainer";
+import ProfileContainer from "./Profile/ProfileContainer";
 
 type Props = {
     state: RootState
@@ -17,7 +18,7 @@ type Props = {
 const Content = (props: Props) => {
     return (
         <>
-            <Route  path='/profile' render={() => <Profile profileData={props.state.profileData} dispatch={props.dispatch}/>}/>
+            <Route  path='/profile' render={() => <ProfileContainer />}/>
             <Route  path='/dialogs' render={() => <DialogsContainer />}/>
             <Route  path='/users' render={() => <UsersContainer />}/>
             <Route  path='/photos' render={() => <Photos />}/>

@@ -1,5 +1,4 @@
 import {connect} from "react-redux";
-import {Dispatch} from "redux";
 import {RootState} from "../../../redux/redux-store";
 import {
     follow,
@@ -31,7 +30,7 @@ export type UsersResponseType = {
     error: string | null
 }
 
-export class UsersContain extends React.Component<CommonPropsType> {
+export class UsersContain extends React.Component<any> {
 
     componentDidMount() {
         this.props.setIsFetching(true)
@@ -93,24 +92,24 @@ let mapStateToProps = (state: RootState) => {
 // }
 
 
-type MSTP = {
-    users: UserType[],
-    pageSize: number,
-    totalUsersCount: number,
-    currentPage: number,
-    isFetching: boolean
-}
+// type MSTP = {
+//     users: UserType[],
+//     pageSize: number,
+//     totalUsersCount: number,
+//     currentPage: number,
+//     isFetching: boolean
+// }
+//
+// type MDTP = {
+//     followUSR: (userID: string) => void
+//     unfollowUSR: (userID: string) => void
+//     setUsers: (users: any) => void
+//     setCurrentPage: (currentPage: number) => void
+//     setUsersCount: (count: number) => void
+//     setIsFetching: (fetching: boolean) => void
+// }
 
-type MDTP = {
-    followUSR: (userID: string) => void
-    unfollowUSR: (userID: string) => void
-    setUsers: (users: any) => void
-    setCurrentPage: (currentPage: number) => void
-    setUsersCount: (count: number) => void
-    setIsFetching: (fetching: boolean) => void
-}
 
-export type CommonPropsType = MSTP & MDTP
 
 export let UsersContainer =  connect(mapStateToProps, { follow,
                                                                         unfollow,
