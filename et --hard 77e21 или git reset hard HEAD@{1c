@@ -1,0 +1,44 @@
+[33m8637265[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: checkout: moving from 6a694b6526dbfe25d30c73c2fbb8ad08797cda48 to main
+[33m6a694b6[m HEAD@{1}: commit: 59 lesson
+[33m5440556[m HEAD@{2}: checkout: moving from 86372655aeb96c4072f13c4f50a69d2ccb59f377 to 544055632d65438405cfa087fda16088f80cb80f
+[33m8637265[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{3}: checkout: moving from 544055632d65438405cfa087fda16088f80cb80f to 86372655aeb96c4072f13c4f50a69d2ccb59f377
+[33m5440556[m HEAD@{4}: reset: moving to 544055632d65438405cfa087fda16088f80cb80f
+[33m8637265[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{5}: checkout: moving from 544055632d65438405cfa087fda16088f80cb80f to 86372655aeb96c4072f13c4f50a69d2ccb59f377
+[33m5440556[m HEAD@{6}: reset: moving to 544055632d65438405cfa087fda16088f80cb80f
+[33m515bd5c[m HEAD@{7}: commit: before 59 lesson
+[33m5440556[m HEAD@{8}: checkout: moving from main to 544055632d65438405cfa087fda16088f80cb80f
+[33m5440556[m HEAD@{9}: reset: moving to 544055632d65438405cfa087fda16088f80cb80f
+[33m8637265[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{10}: reset: moving to 86372655aeb96c4072f13c4f50a69d2ccb59f377
+[33m479731f[m HEAD@{11}: revert: Revert "all changes in projects"
+[33m8637265[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{12}: checkout: moving from 544055632d65438405cfa087fda16088f80cb80f to main
+[33m5440556[m HEAD@{13}: checkout: moving from 86372655aeb96c4072f13c4f50a69d2ccb59f377 to 544055632d65438405cfa087fda16088f80cb80f
+[33m8637265[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{14}: checkout: moving from 544055632d65438405cfa087fda16088f80cb80f to 86372655aeb96c4072f13c4f50a69d2ccb59f377
+[33m5440556[m HEAD@{15}: checkout: moving from main to 544055632d65438405cfa087fda16088f80cb80f
+[33m8637265[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{16}: commit: all changes in projects
+[33m5440556[m HEAD@{17}: commit: 58 lesson
+[33mf4420e0[m HEAD@{18}: commit: 57 lesson
+[33m83bcbb7[m HEAD@{19}: commit: after 56 lesson
+[33m882e9bb[m HEAD@{20}: commit: after 55 lesson
+[33m0b048c3[m HEAD@{21}: commit: after 54 lesson
+[33m6c609b8[m HEAD@{22}: commit: after 49 lesson
+[33md844839[m HEAD@{23}: commit: after 44 lesson
+[33mc4661b6[m HEAD@{24}: commit: after 41 lesson
+[33m7a4a451[m HEAD@{25}: commit: after 40 lessons
+[33ma288988[m HEAD@{26}: commit: state after 37 lessons
+[33mb6dec7e[m HEAD@{27}: commit: state after 33 lessons
+[33mc01c29f[m HEAD@{28}: commit: end third monday
+[33m848af23[m HEAD@{29}: checkout: moving from 848af2384af1f2da7c30003b0c1791084dac9ad0 to main
+[33m848af23[m HEAD@{30}: reset: moving to 848af2384af1f2da7c30003b0c1791084dac9ad0
+[33mc3078a7[m HEAD@{31}: commit (amend): State after 28 lesson
+[33mc43e05e[m HEAD@{32}: commit (amend): Новое название
+[33m622b238[m HEAD@{33}: commit (amend): Новое название
+[33m848af23[m HEAD@{34}: checkout: moving from main to 848af2384af1f2da7c30003b0c1791084dac9ad0
+[33m848af23[m HEAD@{35}: reset: moving to 848af2384af1f2da7c30003b0c1791084dac9ad0
+[33m848af23[m HEAD@{36}: reset: moving to 848af2384af1f2da7c30003b0c1791084dac9ad0
+[33m848af23[m HEAD@{37}: commit: state after 30 lesson
+[33m134a5ef[m HEAD@{38}: commit: after 26 lesson
+[33maad629e[m HEAD@{39}: commit: after 23 lessons
+[33m98e87ba[m HEAD@{40}: commit: state after 18 lesson
+[33m74c57dd[m HEAD@{41}: commit: added css modules and structure
+[33mb41d657[m HEAD@{42}: Branch: renamed refs/heads/master to refs/heads/main
+[33mb41d657[m HEAD@{44}: commit (initial): first commit
