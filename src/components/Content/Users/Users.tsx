@@ -37,7 +37,7 @@ export const Users = (props: UsersPropsType) => {
                 props.users.map((u: any) => <div key={u.id}>
                     <div className={s.userBlock}>
                         <div className={s.userImg}>
-                            <NavLink to={'/profile/' + 2}>
+                            <NavLink to={'/profile/' + u.id}>
                                 <img className={s.avatar} src={u.photos.small?u.photos.small:userPhoto} alt={'avatar'}/>
                             </NavLink>
                             {u.followed

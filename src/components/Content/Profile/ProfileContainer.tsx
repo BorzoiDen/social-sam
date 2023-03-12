@@ -8,6 +8,7 @@ import axios from "axios";
 import {UsersResponseType, UserType} from "../Users/UsersContainer";
 import Profile from "./Profile";
 import {connect} from "react-redux";
+import {RouteComponentProps, withRouter} from "react-router-dom";
 
 
 type ContactsType = {
@@ -36,10 +37,19 @@ export type ProfileResponseType = {
     "photos": PhotosType
 }
 
+type PathParamsType = {
+    userId: string
+}
 
-class ProfileContainer extends React.Component<CommonPropsType>{
+type CommonProps = RouteComponentProps<PathParamsType> & CommonPropsType
+
+
+class ProfileContainer extends React.Component<CommonProps>{
+
+
     componentDidMount() {
-        axios.get<ProfileResponseType>(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        let userId = this.props.match.params.userId
+        axios.get<ProfileResponseType>(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
             .then((response) => {
                 this.props.setUserProfile(response.data);
             })
@@ -57,8 +67,9 @@ let mapStateToProps = (state: RootState) => ({
 })
 
 type MSTP = {
-    profile: ProfileResponseType
+    profile: ProfileResponseType,
 }
+
 
 type MDTP = {
     setUserProfile: (profile: ProfileResponseType) => void
@@ -66,5 +77,6 @@ type MDTP = {
 
 export type CommonPropsType = MSTP & MDTP
 
+let withURLDataContainerComponent = withRouter(ProfileContainer) //!!!!!!!!!!!
 
-export default connect(mapStateToProps, {setUserProfile})(ProfileContainer);
+export default connect(mapStateToProps, {setUserProfile})(withURLDataContainerComponent);

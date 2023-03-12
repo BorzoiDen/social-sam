@@ -9,6 +9,8 @@ type ProfileInfoPropsType = {
 }
 
 
+
+
 const ProfileInfo = (props: ProfileInfoPropsType) => {
     return (
         <>
